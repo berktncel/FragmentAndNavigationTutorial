@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.berkt.fragmentandnavigation.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/navigateToSecondFragment"
+            app:destination="@id/secondFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" >
+            <argument
+                android:name="textToArg2" />
+        </action>
+        <argument
+            android:name="textToArg1"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.berkt.fragmentandnavigation.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/navigateToFirstFragment"
+            app:destination="@id/firstFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" >
+            <argument
+                android:name="textToArg1" />
+        </action>
+        <argument
+            android:name="textToArg2"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+</navigation>
